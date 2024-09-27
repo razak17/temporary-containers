@@ -174,7 +174,11 @@ export class Tabs {
     const deletesHistory =
       this.pref.deletesHistory.automaticMode === 'automatic';
 
-    if (tab.cookieStoreId === `${this.background.containerPrefix}-default`) {
+    let containerPrefix = this.background.containerPrefix;
+    if (containerPrefix === 'zen') {
+      containerPrefix = 'firefox';
+    }
+    if (tab.cookieStoreId === `${containerPrefix}-default`) {
       if (this.pref.automaticMode.newTab === 'navigation' && !deletesHistory) {
         this.debug(
           '[maybeReopenInTmpContainer] automatic mode on navigation, setting icon badge',

@@ -26,12 +26,13 @@ export class PageAction {
     }
 
     let color;
+    let containerPrefix = this.background.containerPrefix;
+    if (containerPrefix === 'zen') {
+      containerPrefix = 'firefox';
+    }
     if (!this.background.isolation.getActiveState()) {
       color = 'warning-red';
-    } else if (
-      activatedTab.cookieStoreId ===
-      `${this.background.containerPrefix}-default`
-    ) {
+    } else if (activatedTab.cookieStoreId === `${containerPrefix}-default`) {
       color = 'gray';
     } else if (
       this.storage.local.tempContainers[activatedTab.cookieStoreId] &&
