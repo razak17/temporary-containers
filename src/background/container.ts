@@ -336,7 +336,7 @@ export class Container {
       containerName = `${containerName}${tempContainerNumber}`;
     }
     if (!containerName) {
-      containerName = ' ';
+      containerName = '‎';
     }
 
     let containerColor = this.pref.container.color;
