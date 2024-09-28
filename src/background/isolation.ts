@@ -87,10 +87,15 @@ export class Isolation {
       return false;
     }
 
+    let containerPrefix = this.background.containerPrefix;
+    const prefixesToReplace = new Set(['zen', 'floorp', 'mercury']);
+    if (prefixesToReplace.has(containerPrefix)) {
+      containerPrefix = 'firefox';
+    }
     if (
       this.mouseclick.isolated[request.url] &&
       tab &&
-      tab.cookieStoreId !== `${this.background.containerPrefix}-default` &&
+      tab.cookieStoreId !== `${containerPrefix}-default` &&
       this.container.urlCreatedContainer[request.url] === tab.cookieStoreId
     ) {
       this.debug(

@@ -22,8 +22,13 @@ export class History {
     }
     const cookieStoreId = tab.cookieStoreId;
     const container = this.storage.local.tempContainers[cookieStoreId];
+    let containerPrefix = this.background.containerPrefix;
+    const prefixesToReplace = new Set(['zen', 'floorp', 'mercury']);
+    if (prefixesToReplace.has(containerPrefix)) {
+      containerPrefix = 'firefox';
+    }
     if (
-      cookieStoreId !== `${this.background.containerPrefix}-default` &&
+      cookieStoreId !== `${containerPrefix}-default` &&
       container &&
       container.deletesHistory
     ) {

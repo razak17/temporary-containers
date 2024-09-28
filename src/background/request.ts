@@ -245,10 +245,12 @@ export class Request {
       return false;
     }
 
-    if (
-      tab &&
-      tab.cookieStoreId !== `${this.background.containerPrefix}-default`
-    ) {
+    let containerPrefix = this.background.containerPrefix;
+    const prefixesToReplace = new Set(['zen', 'floorp', 'mercury']);
+    if (prefixesToReplace.has(containerPrefix)) {
+      containerPrefix = 'firefox';
+    }
+    if (tab && tab.cookieStoreId !== `${containerPrefix}-default`) {
       this.debug(
         '[handleRequest] onBeforeRequest tab belongs to a non-default container',
         tab,

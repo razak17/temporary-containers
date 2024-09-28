@@ -366,8 +366,13 @@ export class Container {
   }
 
   isPermanent(cookieStoreId: CookieStoreId): boolean {
+    let containerPrefix = this.background.containerPrefix;
+    const prefixesToReplace = new Set(['zen', 'floorp', 'mercury']);
+    if (prefixesToReplace.has(containerPrefix)) {
+      containerPrefix = 'firefox';
+    }
     if (
-      cookieStoreId !== `${this.background.containerPrefix}-default` &&
+      cookieStoreId !== `${containerPrefix}-default` &&
       !this.storage.local.tempContainers[cookieStoreId]
     ) {
       return true;
