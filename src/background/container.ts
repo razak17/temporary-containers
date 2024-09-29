@@ -93,10 +93,6 @@ export class Container {
         inheritedContainerOptions = this.storage.local.tempContainers[
           tab.cookieStoreId
         ];
-      } else {
-        inheritedContainerOptions = await browser.contextualIdentities.get(
-          tab.cookieStoreId
-        );
       }
     }
 
