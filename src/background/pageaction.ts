@@ -27,7 +27,7 @@ export class PageAction {
 
     let color;
     let containerPrefix = this.background.containerPrefix;
-    const prefixesToReplace = new Set(['zen', 'floorp', 'mercury']);
+    const prefixesToReplace = new Set(['zen', 'floorp', 'mercury', 'waterfox']);
     if (prefixesToReplace.has(containerPrefix)) {
       containerPrefix = 'firefox';
     }
