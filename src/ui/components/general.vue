@@ -168,6 +168,26 @@ export default mixins(mixin).extend({
         </div>
       </div>
       <div class="field">
+        <div id="colorInherit" class="ui checkbox">
+          <input
+            id="containerColorInherit"
+            v-model="preferences.container.colorInherit"
+            type="checkbox"
+          />
+          <label>{{ t('optionsGeneralContainerInheritColor') }}</label>
+        </div>
+      </div>
+      <div class="field">
+        <div id="iconInherit" class="ui checkbox">
+          <input
+            id="containerIconInherit"
+            v-model="preferences.container.iconInherit"
+            type="checkbox"
+          />
+          <label>{{ t('optionsGeneralContainerInheritIcon') }}</label>
+        </div>
+      </div>
+      <div class="field">
         <label>{{ t('optionsGeneralContainerNamePrefix') }}</label>
         <input
           id="containerNamePrefix"

@@ -190,6 +190,8 @@ export class Isolation {
       request,
       deletesHistory:
         this.pref.deletesHistory.containerIsolation === 'automatic',
+      inheritContainerOptions:
+        this.pref.container.colorInherit || this.pref.container.iconInherit,
     };
 
     let reload = false;
